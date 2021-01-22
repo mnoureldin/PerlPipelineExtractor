@@ -195,7 +195,7 @@ private static final Logger log = Logger.getLogger( Wrapper.class.getName() );
    /** Gets a batch of documents from the database */
    private ResultSet getDocumentBatch(Connection connection, int batchSize) {
       try {
-         PreparedStatement query = connection.prepareStatement("SELECT * from main_crawl_document WHERE state = ? AND (id >=30000000) ORDER BY priority desc LIMIT ?;",
+         PreparedStatement query = connection.prepareStatement("SELECT * from main_crawl_document WHERE state = ? AND (id >=1) ORDER BY id desc LIMIT ?;",
             ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
          query.setInt(1, UNPROCESSED);
          query.setInt(2, batchSize);
